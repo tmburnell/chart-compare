@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-line',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./line.component.scss']
 })
 export class LineComponent implements OnInit {
+  layout: {
+    direction: boolean
+  };
 
-  constructor() { }
+  constructor(public configService: ConfigService) { }
 
   ngOnInit() {
+    this.layout = this.configService.getLayout();
   }
 
 }

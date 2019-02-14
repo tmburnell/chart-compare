@@ -1,32 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LineComponent } from './screens/line/line.component';
-import { NgxLineComponent } from './screens/line/ngx-line/ngx-line.component';
-import { HighchartLineComponent } from './screens/line/highchart-line/highchart-line.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { HighchartsChartModule } from 'highcharts-angular';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { screens } from './screens';
+import { ThirdPartyModules } from './thirdPartyModules';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LineComponent,
-    NgxLineComponent,
-    HighchartLineComponent
+    screens
   ],
-  imports: [
+  imports:      [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
-    NgxChartsModule,
-    HighchartsChartModule,
-    FlexLayoutModule
+    ThirdPartyModules
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers:    [],
+  bootstrap:    [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

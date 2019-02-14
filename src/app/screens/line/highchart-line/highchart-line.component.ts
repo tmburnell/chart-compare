@@ -15,7 +15,12 @@ export class HighchartLineComponent implements OnInit {
 
   ngOnInit() {
     this.highchartOptions = {
-      xAxis: {type: 'catagory'},
+      chart: {
+        renderTo: 'container',
+        type: 'line'
+      //  "area"|"areaspline"|"bar"|"column"|"line"|"pie"|"scatter"|"spline"
+      },
+      xAxis: {type: 'category'},
       series : <any> this.configService.getData(ChartType.highchart)
     };
   }

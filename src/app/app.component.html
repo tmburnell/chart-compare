@@ -1,1 +1,32 @@
-<app-line></app-line>
+<mat-sidenav-container style="position: absolute; height: 100%; width: 100%;">
+  <mat-sidenav [opened]="true" mode="side">
+    <div fxLayout="column">
+      <div>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>Chart Type</mat-expansion-panel-header>
+          <mat-form-field>
+            <mat-select [value]="router.url">
+              <mat-option routerLink="line" value="/line">Line</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>Direction</mat-expansion-panel-header>
+          <div>row <mat-slide-toggle [(ngModel)]="layout.direction"></mat-slide-toggle> column</div>
+          <p>
+            * Neither control auto resizes on layout change ... however do on window resize.
+            But both look like they dont resize back correctly after more than one resize and toggle.
+          </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>Data</mat-expansion-panel-header>
+          <pre><code>{{data | json}}</code></pre>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

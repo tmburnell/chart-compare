@@ -141,10 +141,15 @@ export class ConfigService {
     }
   ];
 
+
+  layout: {
+    direction: boolean
+  } = {direction: false};
+
   constructor() {
   }
 
-  getData(type: ChartType): ngxData | highChartData {
+  getData(type?: ChartType): ngxData | highChartData {
     if (type === ChartType.ngx) {
       return <ngxData>this.series;
     } else if (type === ChartType.highchart) {
@@ -157,7 +162,11 @@ export class ConfigService {
         };
       });
     } else {
-      return null;
+      return this.series;
     }
+  }
+
+  getLayout() {
+    return this.layout;
   }
 }
